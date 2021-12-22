@@ -66,17 +66,34 @@ public class Knight {
         return sumProtection;
     }
 
-    public void sortByCost(){
+    public void sortAmmunitionByCost(){
         ammunitionList.sort(new SortAmmunitionByCost());
         for (Ammunition ammunition : ammunitionList) {
             System.out.println(ammunition);
         }
     }
 
-    public void sortByWeight(){
+    public void sortAmmunitionByWeight(){
         ammunitionList.sort(new SortAmmunitionByWeight());
         for (Ammunition ammunition : ammunitionList) {
             System.out.println(ammunition);
         }
     }
+
+    public void searchAmmunitionByCost(int start, int end){
+        for (Ammunition ammunition : ammunitionList) {
+            if(ammunition.getCost() >= start && ammunition.getCost() <= end){
+                System.out.println(ammunition);
+            }
+        }
+    }
+
+    public void searchAmmunitionByWeight(int start, int end){
+        for (Ammunition ammunition : ammunitionList) {
+            if(ammunition.getWeight() >= start && ammunition.getWeight() <= end){
+                System.out.println(ammunition);
+            }
+        }
+    }
+
 }

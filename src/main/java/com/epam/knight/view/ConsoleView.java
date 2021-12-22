@@ -61,6 +61,7 @@ public class ConsoleView {
                     sortAmmunition(knight, controller);
                     break;
                 case SEARCH_AMMUNITION:
+                    searchAmmunition(knight, controller);
                     break;
                 case EXIT:
                     System.out.println(FIREWALL);
@@ -120,18 +121,35 @@ public class ConsoleView {
         System.out.println(SORT_AMMUNITION);
         System.out.println(CHOSE_OPTION);
         int inputNumber = controller.inputNumber(1, 2);
-        switch (inputNumber){
+        switch (inputNumber) {
             case 1:
-                knight.sortByCost();
+                knight.sortAmmunitionByCost();
                 break;
             case 2:
-                knight.sortByWeight();
+                knight.sortAmmunitionByWeight();
                 break;
         }
     }
 
-    public void searchAmmunition(Knight knight, Controller controller){
+    public void searchAmmunition(Knight knight, Controller controller) {
         System.out.println(SEARCH_AMMUNITION);
-        System.out.println();
+        System.out.println(CHOSE_OPTION);
+        int inputNumber = controller.inputNumber(1, 2);
+        switch (inputNumber) {
+            case 1:
+                System.out.println(INPUT_MINIMUM);
+                int minimumCost = controller.inputNumber(0, Integer.MAX_VALUE);
+                System.out.println(INPUT_MAXIMUM);
+                int maximumCost = controller.inputNumber(0, Integer.MAX_VALUE);
+                knight.searchAmmunitionByCost(minimumCost, maximumCost);
+                break;
+            case 2:
+                System.out.println(INPUT_MINIMUM);
+                int minimumWeight = controller.inputNumber(0, Integer.MAX_VALUE);
+                System.out.println(INPUT_MAXIMUM);
+                int maximumWeight = controller.inputNumber(0, Integer.MAX_VALUE);
+                knight.searchAmmunitionByWeight(minimumWeight, maximumWeight);
+                break;
+        }
     }
 }
