@@ -7,8 +7,6 @@ import com.epam.knight.model.sort.SortAmmunitionByCost;
 import com.epam.knight.model.sort.SortAmmunitionByWeight;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Knight {
@@ -68,13 +66,17 @@ public class Knight {
         return sumProtection;
     }
 
-    public List<Ammunition> sortByCost(){
-        List<Ammunition> clonedAmmunition = new ArrayList<>(ammunitionList);
-        Collections.sort(ammunitionList, new SortAmmunitionByCost());
-        return clonedAmmunition;
+    public void sortByCost(){
+        ammunitionList.sort(new SortAmmunitionByCost());
+        for (Ammunition ammunition : ammunitionList) {
+            System.out.println(ammunition);
+        }
     }
 
     public void sortByWeight(){
         ammunitionList.sort(new SortAmmunitionByWeight());
+        for (Ammunition ammunition : ammunitionList) {
+            System.out.println(ammunition);
+        }
     }
 }
